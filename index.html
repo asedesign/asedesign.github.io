@@ -705,11 +705,11 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
 <div class="fc bt"></div>
 </div><span class="bshadow"></span></div></div>
     </div>
-    <div class="mats rv">
-      <div class="im" role="img" aria-label="Detalle del papel kraft impreso y la tira de tela"></div>
+    <div class="mats rv" id="mats">
+      <div class="im" role="img" aria-label="Materiales de la bolsa"><div class="mk"></div><div class="mt"></div><img class="imp" src="assets/86ee1c3a5e94.jpg" alt="Puntada Tras Puntada impreso a una tinta"></div>
       <ul>
         <li tabindex="0">Papel reciclado<small>Kraft de fibra reciclada, sin plastificar.</small></li>
-        <li tabindex="0">Tela reutilizada<small>El asa sale de retales de tela de otros proyectos.</small></li>
+        <li tabindex="0">Tela reutilizada<small>El asa sale de los sobrantes de tela de la colección que ella misma creó.</small></li>
         <li tabindex="0">Tinta mínima<small>Una sola tinta negra para el nombre de la marca.</small></li>
       </ul>
     </div>
@@ -813,7 +813,7 @@ const big=$('#big'); 'Portfolio'.split('').forEach(c=>{const s=document.createEl
 const letters=[...big.children];const bw=document.createElement('span');bw.className='bw';bw.textContent='Portfolio';big.appendChild(bw);const _x=0, fan=[...$('#fan').children], asel=$('#asel'), claim=$('#claim'), hint=$('#hint'), intro=$('#intro');
 const fanPos=[[-2.1,-.15,-14],[-1.05,-.05,-6],[0,0,0],[1.05,-.05,6],[2.1,-.15,14]];
 const macl=$('#macl'),mac=$('#mac'),scr=$('#scr'),scrIn=$('#scrIn'),macc=$('#macc'),mact=$('#mact');let mg=null;
-function macGeo(){mac.style.transform='none';const s0=scr.getBoundingClientRect();const k=Math.max(innerWidth/s0.width,innerHeight/s0.height);const sg=1/k;
+function macGeo(){mac.style.transform='none';const por=innerWidth<=700&&innerHeight>innerWidth;mac.classList.toggle('isphone',por);scr.style.aspectRatio=por?`${innerWidth}/${innerHeight}`:'';const s0=scr.getBoundingClientRect();const k=Math.max(innerWidth/s0.width,innerHeight/s0.height);const sg=1/k;
  scrIn.style.width=innerWidth+'px';scrIn.style.height=innerHeight+'px';scrIn.style.transform=`translate(${(s0.width-innerWidth*sg)/2}px,${(s0.height-innerHeight*sg)/2}px) scale(${sg})`;
  const m=mac.getBoundingClientRect(),s=s0;const ox=s.left+s.width/2-m.left,oy=s.top+s.height/2-m.top;mac.style.transformOrigin=`${ox}px ${oy}px`;
  mg={dx:innerWidth/2-(s.left+s.width/2),dy:innerHeight/2-(s.top+s.height/2),k:k*1.001,f:.9}}
@@ -979,7 +979,7 @@ pvPlay();pv.addEventListener('pause',()=>setTimeout(pvPlay,60));document.addEven
  book.addEventListener('pointerup',up);book.addEventListener('pointercancel',up);
  book.style.touchAction='pan-y';
  /* se abre y se cierra con el scroll, hoja a hoja */
- const OPEN=28,W=2.6;let av=0,man=false;
+ const OPEN=29,W=2.6;let av=0,man=false;
  const ez2=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
  function target(){const r=book.getBoundingClientRect(),vh=innerHeight,c=(r.top+r.bottom)/2/vh;
   const o=clamp((.98-c)/(.98-.5),0,1),x=clamp((.36-c)/(.36-0),0,1);return ez2(o)*(1-ez2(x))}
@@ -1302,6 +1302,39 @@ const cl=(v,a,b)=>Math.max(a,Math.min(b,v)),ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2
  (function f(){const r=row.getBoundingClientRect();if(r.top<innerHeight*1.2&&r.bottom>-200){const p=RM?1:ez(cl((innerHeight-r.top)/(innerHeight*.75),0,1));
   ph.style.translate=`${(p-1)*Math.min(70,60+innerWidth/100)}vw 0`;ph.style.rotate=`${(1-p)*-14}deg`;ph.style.opacity=String(.2+.8*p)}
   requestAnimationFrame(f)})();})();
+</script>
+<style>
+/* inicio en móvil: un teléfono en lugar del portátil */
+.mac.isphone{width:min(62vw,calc((100svh - 300px) * .47));margin-top:30px}
+.mac.isphone .lid{border-radius:14%/6.6%;padding:3.4%;box-shadow:inset 0 0 0 2px #38383d,0 30px 60px rgba(20,10,51,.25)}
+.mac.isphone .scr{border-radius:11%/5.2%}
+.mac.isphone .notch{top:2.6%;width:30%;height:3.4%;border-radius:99px}
+.mac.isphone .base{display:none}
+.mac.isphone .floor{bottom:-30px}
+/* revista fija abierta */
+.spread{position:relative;display:grid;grid-template-columns:1fr 1fr;width:min(1000px,100%);margin:0 auto;box-shadow:0 30px 60px rgba(60,10,0,.35);border-radius:3px;overflow:hidden;background:#fff}
+.spread img{width:100%;height:auto;display:block}
+.spread .gut{position:absolute;top:0;bottom:0;left:50%;width:12%;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(0,0,0,.08) 38%,rgba(0,0,0,.28) 50%,rgba(0,0,0,.08) 62%,transparent);pointer-events:none}
+/* Rompe el bucle en móvil: separación entre carteles y móvil */
+@media (max-width:900px){#rompe .igrow{margin-top:110px;padding-top:40px;border-top:1px solid rgba(255,255,255,.12)}#rompe .deck{margin-bottom:20px}}
+</style>
+
+<style>
+/* Ecodiseño materiales: solo material real; al elegir uno ocupa el recuadro */
+.mats .im{background:none!important;display:flex;overflow:hidden;position:relative}
+.mats .im::after{display:none!important}
+.mats .im .mk{flex:1 1 78%;background:url(assets/eco-kraft.jpg) center/cover;transition:flex-basis .7s var(--ease)}
+.mats .im .mt{flex:1 1 22%;background:url(assets/eco-tela-v.jpg) 0 0/auto 100% repeat-x;transition:flex-basis .7s var(--ease)}
+.mats .im .imp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 92%;opacity:0;transition:opacity .5s ease .2s}
+.mats.on-papel .mk{flex-basis:100%}.mats.on-papel .mt{flex-basis:0%}
+.mats.on-tela .mt{flex-basis:100%}.mats.on-tela .mk{flex-basis:0%}
+.mats.on-tinta .mk{flex-basis:100%}.mats.on-tinta .mt{flex-basis:0%}.mats.on-tinta .imp{opacity:1}
+.mats li{cursor:pointer}
+</style>
+<script>
+(()=>{const m=document.getElementById('mats');if(!m)return;const k=['papel','tela','tinta'];const set=c=>{m.classList.remove('on-papel','on-tela','on-tinta');if(c)m.classList.add('on-'+c)};
+m.querySelectorAll('li').forEach((li,i)=>{li.addEventListener('mouseenter',()=>set(k[i]));li.addEventListener('focus',()=>set(k[i]));li.addEventListener('click',()=>set(k[i]))});
+m.querySelector('ul').addEventListener('mouseleave',()=>set(null));})();
 </script>
 </body>
 </html>
