@@ -72,13 +72,15 @@ header.site.bar.dk::before{background:rgba(255,255,255,.72)}
 
 /* ===== INTRO (scroll-driven) ===== */
 .intro{position:relative;height:360vh;background:var(--violet)}
+@media (max-width:700px){.intro{height:300vh}.about.sec{padding-top:56px}}
 /* Mac: fondo blanco y zoom hasta la pantalla */
 .macl{position:absolute;inset:0;background:#fff;z-index:5;display:grid;place-items:center;overflow:hidden}
 .macl.off{pointer-events:none}
 .mac{position:relative;width:min(980px,84vw,calc((100svh - 300px) * 1.42));margin-top:40px}
 .lid{position:relative;background:#0d0d0f;border-radius:20px 20px 8px 8px;padding:1.5% 1.5% 2.4%;box-shadow:inset 0 0 0 2px #38383d,0 2px 0 #b8bac0}
 .scr{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:6px;background:var(--violet)}
-.scr-in{position:absolute;left:0;top:0;width:1440px;height:900px;transform-origin:0 0;color:#fff;overflow:hidden}
+.scr-in{position:absolute;left:0;top:0;width:100vw;height:100vh;transform-origin:0 0;color:#fff;overflow:hidden}
+.scr-in .asel{will-change:auto}
 .notch{position:absolute;left:50%;top:1.5%;width:11%;height:3.2%;transform:translateX(-50%);background:#0d0d0f;border-radius:0 0 10px 10px;z-index:2}
 .base{position:relative;width:116%;margin-left:-8%;height:clamp(10px,1.7vw,19px);background:linear-gradient(#ecedf0,#c4c6cc 55%,#8f9198);border-radius:2px 2px 50% 50% / 2px 2px 100% 100%}
 .base i{position:absolute;left:50%;top:0;width:15%;height:42%;transform:translateX(-50%);background:linear-gradient(#a3a5ab,#cfd1d6);border-radius:0 0 12px 12px}
@@ -527,7 +529,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
 <div class="prog" id="prog"></div>
 <header class="site">
   <div class="wrap hdr">
-    <a class="lg" href="#top" aria-label="Inicio"><img src="assets/1a736c06a9c2.png" alt="ASÉ"></a>
+    <a class="lg" href="#top" aria-label="Inicio"><img src="assets/ase-logo.svg" alt="ASÉ"></a>
     <nav aria-label="Principal"><a href="#sobre">Sobre mí</a><a href="#proyectos">Proyectos</a><a class="cta" href="#contacto">Contacto</a></nav>
   </div>
 </header>
@@ -538,7 +540,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
   <div class="stage" id="stage">
     <div class="grain"></div>
     <div class="who"><b>María José Ramírez Flores</b><span>Diseñadora gráfica multidisciplinar · Málaga</span></div>
-    <img class="asel" id="asel" src="assets/1a736c06a9c2.png" alt="Logo ASÉ">
+    <img class="asel" id="asel" src="assets/ase-logo.svg" alt="Logo ASÉ">
     <div class="hint" id="hint">Baja para empezar<i></i></div>
     <div class="fan" id="fan" aria-hidden="true">
       <img src="assets/1e44b02837b8.png" style="object-fit:contain;aspect-ratio:1/1;border-radius:0;box-shadow:none;filter:drop-shadow(0 30px 40px rgba(20,0,60,.45))" alt=""><img src="assets/24a93d5a3ad5.jpg" alt=""><img src="assets/d12ea04f7bc9.png" alt="" style="object-fit:contain;background:#1747D1"><img src="assets/c110c5a30cdb.jpg" alt=""><img src="assets/7b6a98d43d86.jpg" alt="">
@@ -548,7 +550,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
     <div class="macl" id="macl">
       <p class="mact" id="mact">ASÉ · Portfolio 2026<span>María José Ramírez Flores</span></p>
       <div class="mac" id="mac" aria-hidden="true">
-        <div class="lid"><i class="notch"></i><div class="scr" id="scr"><div class="scr-in" id="scrIn"><div class="si-who"><b>María José Ramírez Flores</b><span>Diseñadora gráfica multidisciplinar · Málaga</span></div><img class="si-logo" src="assets/1a736c06a9c2.png" alt=""><div class="si-big">Portfolio</div></div></div></div>
+        <div class="lid"><i class="notch"></i><div class="scr" id="scr"><div class="scr-in" id="scrIn"><div class="who"><b>María José Ramírez Flores</b><span>Diseñadora gráfica multidisciplinar · Málaga</span></div><img class="asel" src="assets/ase-logo.svg" alt=""><div class="big si-big2">Portfolio</div></div></div></div>
         <div class="base"><i></i></div><span class="floor"></span>
       </div>
       <p class="macc" id="macc">Baja para entrar<i></i></p>
@@ -566,7 +568,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
       <div class="title2"><span class="a">Diseñadora</span><span class="b">multidisciplinar</span></div>
     </div>
     <div>
-      <div class="play" id="play"><span class="lbl">Arrastra y lanza</span></div>
+      <div class="play" id="play"></div>
       <p class="hintc">Mis herramientas, sueltas para jugar</p>
     </div>
   </div>
@@ -600,14 +602,54 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
         <p class="hintc">Haz clic para soltar tinta</p>
       </div>
     </div>
-    <div class="car">
-      <div class="track" id="tinTrack" tabindex="0" aria-label="Aplicaciones de Tintals">
-        <figure><img src="assets/3162b8a73112.jpg" alt="Web de Tintals" loading="lazy"></figure>
-        <figure class="s"><img src="assets/4785cf36e8f3.jpg" alt="App de Tintals en el móvil" loading="lazy"></figure>
-        <figure class="s"><img src="assets/e1400d2525ec.jpg" alt="Tarjetas de Tintals" loading="lazy"></figure>
-        
+    <div class="tapp" id="tapp">
+      <div class="tapp-st">
+        <span class="tblob b1" aria-hidden="true"></span><span class="tblob b2" aria-hidden="true"></span>
+        <div class="tapp-items" aria-label="Papelería de Tintals">
+          <div class="ti ti-paper" id="tiPaper">
+            <span class="band"></span>
+            <img class="wm" src="assets/tin-wm-azul.png" alt="Tintals">
+            <p class="srv">Copias · Impresión<br>Papelería · Diseño</p>
+          </div>
+          <div class="ti ti-card" id="tiCard">
+            <div class="cd back"><img class="wm" src="assets/tin-wm-azul.png" alt=""><small>Copias · Impresión<br>Papelería · Diseño</small><span class="pat"></span></div>
+            <div class="cd front"><img class="wm" src="assets/330953f9f7e4.png" alt="Tintals"></div>
+          </div>
+        </div>
+        <div class="tphone" id="tphone" aria-label="App de Tintals en el móvil">
+          <div class="tscr" id="tscr">
+            <i class="tisl" aria-hidden="true"></i>
+            <div class="tload">
+              <svg class="tliq" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path id="tw2" fill="rgba(10,58,190,.45)"/><path id="tw1" fill="rgba(6,42,150,.6)"/></svg>
+              <div class="tbub" id="tbub" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <img class="tsym" src="assets/tin-simbolo.png" alt="">
+              <img class="twm" src="assets/330953f9f7e4.png" alt="Tintals">
+              <p class="tcap"><span id="tpct">0%</span>Imprime desde el móvil</p>
+            </div>
+            <div class="tui" id="tui">
+              <div class="tui-bar"><b>9:41</b><span><i></i><i></i><i></i><em></em></span></div>
+              <div class="tui-vp"><div class="tui-in" id="tuiIn">
+                <div class="tui-hd"><span class="tui-logo"><img src="assets/330953f9f7e4.png" alt="Tintals"></span><span class="tui-cart"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><i>2</i></span></div>
+                <div class="tui-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Busca libretas, bolsas…</span></div>
+                <div class="tui-hero"><h4>Un mundo lleno de posibilidades</h4><p>Imprime, crea y recoge en tienda.</p><em>Empieza a imprimir</em><img class="tui-hsym" src="assets/tin-simbolo.png" alt=""><svg class="tui-wave" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 C 18 0, 32 12, 52 6 S 84 0, 100 5 V12 H0Z" fill="#fff"/></svg></div>
+                <div class="tui-cats">
+                  <span><i><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></i>Favoritos</span>
+                  <span><i><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8a3 3 0 0 1 6 0"/></svg></i>Bolsas</span>
+                  <span><i><svg viewBox="0 0 24 24"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg></i>Libretas</span>
+                  <span><i><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></i>Ideas</span>
+                  <span><i><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></i>Sobres</span>
+                  <span><i><svg viewBox="0 0 24 24"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></svg></i>Regalos</span>
+                </div>
+                <div class="tui-nov"><div class="tui-nb">Novedades</div><div class="tui-g"><img src="assets/tin-p1.jpg" alt="Bolsa de tela Tintals"><img src="assets/tin-p2.jpg" alt="Camiseta Tintals"><img src="assets/tin-p3.jpg" alt="Libreta amarilla Tintals"></div></div>
+                
+                <div class="tui-dest"><img src="assets/tin-hero.jpg" alt="Libreta y cuaderno de Tintals"><span>Destacado</span><b>Libretas Tintals</b></div>
+                <div class="tui-up"><img src="assets/tin-simbolo.png" alt=""><b>Imprime desde el móvil</b><span>Sube tu archivo y recógelo en tienda</span><em>Subir archivo</em></div>
+              </div></div>
+              <nav class="tui-tab" aria-hidden="true"><i class="on"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></svg></i><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></i><i><svg viewBox="0 0 24 24"><path d="M7 9V4h10v5M6 18H4v-8h16v8h-2M7 14h10v6H7z"/></svg></i><i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i></nav>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="carbar"><div class="cb"><span id="tinBar"></span></div><button class="arrow" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button><button class="arrow" type="button" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button></div>
     </div>
   </div>
 </section>
@@ -620,7 +662,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
         <div class="ph"><span class="tag" style="background:var(--lred);color:#F4EDE1">02</span><p class="ey">Tipografía</p></div>
         <h2>Lunara</h2>
         <p class="lead" style="margin-top:22px;color:#5A2A22">Tipografía creada desde cero e inspirada en la moda, pero en la moda humana: contrastes de pasarela para una letra que celebra lo imperfecto.</p>
-        <p style="font-family:var(--f-type);font-size:clamp(2rem,3.6vw,3rem);line-height:1.05;margin-top:26px;color:var(--lgreen)">Imperfecta como tú,<br>única como nadie.</p>
+        <p style="font-family:var(--f-type);font-size:clamp(2rem,3.6vw,3rem);line-height:1.22;margin-top:26px;color:var(--lgreen)">Imperfecta como tú,<br>única como nadie.</p>
       </div>
       <div class="posters" id="posters">
         <div class="poster a"><img src="assets/24a93d5a3ad5.jpg" alt="Cartel de Lunara con boca"></div>
@@ -652,7 +694,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
     <div class="two eco-two">
       <div class="rv">
         <p class="lead">Envase sostenible para Irene Ranea, una estudiante que estaba acabando la carrera de moda. Papel reciclado, asa de tela reutilizada y la mínima tinta, para que todo pueda reciclarse.</p>
-        <div class="vid evid"><video id="pv" src="assets/507fa3b538a8.mp4" poster="assets/91bb6eb22206.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Vídeo: la bolsa Puntada Tras Puntada por la calle"></video><button class="vbtn" id="vbtn" type="button" aria-label="Pausar vídeo">Pausa</button></div>
+        <div class="vid evid"><video id="pv" src="assets/507fa3b538a8.mp4" poster="assets/91bb6eb22206.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Vídeo: la bolsa Puntada Tras Puntada por la calle"></video></div>
       </div>
       <div class="swing" id="swing"><span class="rope"></span><div class="bag" id="bag" role="img" aria-label="Bolsa Puntada Tras Puntada en 3D: delante el nombre de la marca, detrás la solapa y Irene Ranea"><div class="bspin" id="bspin">
 <img class="strap3" src="data:image/jpeg;base64,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" alt="" draggable="false">
@@ -661,7 +703,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
 <div class="fc sd sl" style="background-image:url(assets/c9709db93aa5.jpg)"><i></i></div>
 <div class="fc sd sr" style="background-image:url(assets/c9709db93aa5.jpg)"><i></i></div>
 <div class="fc bt"></div>
-</div><span class="bshadow"></span></div><p class="hintc bhint">Arrastra la bolsa para girarla</p></div>
+</div><span class="bshadow"></span></div></div>
     </div>
     <div class="mats rv">
       <div class="im" role="img" aria-label="Detalle del papel kraft impreso y la tira de tela"></div>
@@ -686,7 +728,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
     <div class="book-w rv">
       <div class="book" id="book" aria-label="Revista Telmodice: pasa las páginas"></div>
       <div class="bctl"><button class="arrow" type="button" id="bPrev" aria-label="Página anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button><span class="bnum" id="bNum">Portada</span><button class="arrow" type="button" id="bNext" aria-label="Página siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button></div>
-      <p class="hintc" style="justify-content:center">Toca la página o desliza para pasarla</p>
+      
       <script type="application/json" id="bookPages">["assets/e88516e5f038.jpg","assets/09fdc4b3a763.jpg","assets/bb350da6d4b5.jpg","assets/2e8c1bb761d6.jpg","assets/eadfd0bd9a2b.jpg","assets/280f242f53d5.jpg","assets/31281156a6e3.jpg","assets/367983ffbb62.jpg","assets/71ba6a5aab5a.jpg","assets/d9e9293bf701.jpg","assets/a44664cc4adf.jpg","assets/ecf3dc6f5b2b.jpg","assets/775c957d4f78.jpg","assets/b51bcc2ba8f8.jpg","assets/0f01183407fe.jpg","assets/6deb7999eae1.jpg","assets/2df944cfe344.jpg","assets/721e9faed716.jpg","assets/09025835ac4e.jpg","assets/73b854edd438.jpg","assets/ec622260bb24.jpg","assets/2419d47e4da1.jpg","assets/bec114eabe7f.jpg","assets/14a2bb60e784.jpg","assets/e2df950a8309.jpg","assets/57c11c80e431.jpg","assets/45a4f02abee0.jpg","assets/256408b54712.jpg","assets/e71b663102d4.jpg","assets/0ef1aaebbff2.jpg","assets/dae2879d209c.jpg","assets/77b02bae6eb7.jpg","assets/d501dd75b157.jpg","assets/249979fde80d.jpg","assets/91f0ad3c3e0c.jpg","assets/a151f25e25ac.jpg","assets/6663c6c92769.jpg","assets/44e1920973ef.jpg","assets/fe353a1021f2.jpg","assets/bbf921ee8b97.jpg","assets/328394fa4ac3.jpg","assets/db261371e6cf.jpg","assets/8348b9a21c09.jpg","assets/45bf603600b0.jpg","assets/dd16c642ee93.jpg","assets/2ecd0e779fea.jpg","assets/7c0a2a583a2b.jpg","assets/9a3dd6a3945a.jpg","assets/01b4d41854f4.jpg","assets/e07dbe25311a.jpg","assets/628e139a6518.jpg","assets/34d43ee8f647.jpg","assets/5663333024a9.jpg","assets/e83d0bc96eb0.jpg","assets/2a5617e4efa4.jpg","assets/9bad116e33e7.jpg","assets/742ab647d99f.jpg","assets/81e7a72346f0.jpg","assets/9ef78231614e.jpg","assets/8260553a8aba.jpg","assets/0ca9ddd4778b.jpg","assets/3eb93be7fcdb.jpg","assets/8a60e1c96292.jpg","assets/201d3c6d45fd.jpg"]</script>
     </div>
   </div>
@@ -705,7 +747,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
         <div class="deck" id="deck" role="button" tabindex="0" aria-label="Cambiar de cartel">
           <img src="assets/0a19d357aac1.jpg" alt="Cartel rosa con boca"><img src="assets/f84e98a93ab3.jpg" alt="Cartel amarillo con puño"><img src="assets/08657366e1c1.jpg" alt="Cartel azul con cerebro">
         </div>
-        <p class="hintc" style="justify-content:center">Toca para barajar los carteles</p>
+        
       </div>
     </div>
     <div class="igrow">
@@ -714,17 +756,17 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
           <div class="ig-top"><span class="ig-av">(E!</span><b>escueladeartesantelmo</b><span class="ig-more">···</span></div>
           <div class="ig-track" id="igTrack"><img src="assets/c0397d3fbc76.jpg" alt="Post: Rompe el bucle" draggable="false"><img src="assets/7a344e6c50ef.jpg" alt="Post: El algoritmo se alimenta del pasado" draggable="false"><img src="assets/4c46888c6913.jpg" alt="Post: Tu creatividad inventa el futuro" draggable="false"><img src="assets/b107db37197e.jpg" alt="Post: La IA imita" draggable="false"><img src="assets/0b088bbffeb1.jpg" alt="Post final de la campaña" draggable="false"></div>
           <div class="ig-bar"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4.1A8 8 0 1 1 20 12z"/></svg><svg viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/></svg><span class="ig-dots" id="igDots"></span><svg viewBox="0 0 24 24" class="r"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div>
-          <p class="ig-cap"><b>escueladeartesantelmo</b> La IA imita. Tú creas. Un carrusel para defender el proceso creativo. <span>#RompeElBucle</span></p>
+          <p class="ig-cap"><b>escueladeartesantelmo</b> La IA imita. Tú creas. <span>#RompeElBucle</span></p>
         </div>
       </div>
-      <div class="igtx"><p class="ey" style="opacity:.75">Redes sociales</p><p class="lead" style="margin-top:12px;opacity:.85">Carrusel de cinco posts para Instagram: cada uno lanza una idea de la campaña y el último cierra con la firma de la escuela.</p><p class="hintc">Desliza el carrusel dentro del móvil</p></div>
+      <div class="igtx"><p class="ey" style="opacity:.75">Redes sociales</p><p class="lead" style="margin-top:12px;opacity:.85">Carrusel de cinco posts para Instagram: cada uno lanza una idea de la campaña y el último cierra con la firma de la escuela.</p></div>
     </div>
   </div>
 </section>
 
 <section class="lapx" id="contacto" aria-label="Diseña tu carcasa y contacto">
   <div class="xstage" id="xstage">
-    <p class="xhint" id="xhint">Rompe el bucle · Las pegatinas<br>Baja para abrir el portátil</p>
+    <p class="xhint" id="xhint"></p>
     <div class="xwrap"><div class="cam" id="cam">
       <div class="baseB"><span class="kb"></span><span class="tp"></span></div>
       <div class="lidB" id="lidB">
@@ -732,7 +774,7 @@ footer.f .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
         <div class="face front"><div class="fscr"><img id="fLogo" alt=""><h2>¿Hablamos?</h2></div></div>
       </div>
     </div></div>
-    <div class="xtools" id="xtools"><p class="hintc" style="justify-content:center;margin:0 0 10px">Pega tus pegatinas</p><div class="sbar" id="sbar" aria-label="Añadir pegatinas"></div><p class="xscroll">¿Ya la tienes? Haz scroll para cerrar el portátil<i></i></p></div>
+    <div class="xtools" id="xtools"><div class="sbar" id="sbar" aria-label="Añadir pegatinas"></div></div>
     <div class="otext" id="otext">
       <div class="mail"><span class="v" id="mail">mariajoseramiflor@gmail.com</span><button class="copy" type="button" id="sendBtn">Enviar email</button></div>
       <p class="tel">+34 691 886 697</p>
@@ -771,7 +813,10 @@ const big=$('#big'); 'Portfolio'.split('').forEach(c=>{const s=document.createEl
 const letters=[...big.children];const bw=document.createElement('span');bw.className='bw';bw.textContent='Portfolio';big.appendChild(bw);const _x=0, fan=[...$('#fan').children], asel=$('#asel'), claim=$('#claim'), hint=$('#hint'), intro=$('#intro');
 const fanPos=[[-2.1,-.15,-14],[-1.05,-.05,-6],[0,0,0],[1.05,-.05,6],[2.1,-.15,14]];
 const macl=$('#macl'),mac=$('#mac'),scr=$('#scr'),scrIn=$('#scrIn'),macc=$('#macc'),mact=$('#mact');let mg=null;
-function macGeo(){mac.style.transform='none';scrIn.style.transform=`scale(${scr.clientWidth/1440})`;const m=mac.getBoundingClientRect(),s=scr.getBoundingClientRect();const ox=s.left+s.width/2-m.left,oy=s.top+s.height/2-m.top;mac.style.transformOrigin=`${ox}px ${oy}px`;const narrow=innerWidth<innerHeight;mg={dx:innerWidth/2-(s.left+s.width/2),dy:innerHeight/2-(s.top+s.height/2),k:(narrow?innerWidth/s.width*1.6:Math.max(innerWidth/s.width,innerHeight/s.height))*1.002,f:narrow?.6:.94}}
+function macGeo(){mac.style.transform='none';const s0=scr.getBoundingClientRect();const k=Math.max(innerWidth/s0.width,innerHeight/s0.height);const sg=1/k;
+ scrIn.style.width=innerWidth+'px';scrIn.style.height=innerHeight+'px';scrIn.style.transform=`translate(${(s0.width-innerWidth*sg)/2}px,${(s0.height-innerHeight*sg)/2}px) scale(${sg})`;
+ const m=mac.getBoundingClientRect(),s=s0;const ox=s.left+s.width/2-m.left,oy=s.top+s.height/2-m.top;mac.style.transformOrigin=`${ox}px ${oy}px`;
+ mg={dx:innerWidth/2-(s.left+s.width/2),dy:innerHeight/2-(s.top+s.height/2),k:k*1.001,f:.9}}
 function introFrame(){
   const r=intro.getBoundingClientRect(), tot=intro.offsetHeight-innerHeight, T=clamp(-r.top/tot,0,1);
   if(!mg)macGeo();
@@ -857,15 +902,7 @@ ink.addEventListener('click',e=>dropAt(e.clientX,e.clientY));
 ink.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();const r=ink.getBoundingClientRect();dropAt(r.left+r.width/2,r.top+r.height/2)}});
 
 
-/* drag carousel */
-const tr=$('#tinTrack'),bar=$('#tinBar');
-function upBar(){const max=tr.scrollWidth-tr.clientWidth;const w=tr.clientWidth/tr.scrollWidth*100;bar.style.width=w+'%';bar.style.left=(max?tr.scrollLeft/max*(100-w):0)+'%'}
-tr.addEventListener('scroll',upBar,{passive:true});
-let dn=false,sx=0,sl=0,moved=0;
-tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn=true;sx=e.clientX;sl=tr.scrollLeft;moved=0});
-addEventListener('pointermove',e=>{if(!dn)return;const dx=e.clientX-sx;moved=Math.abs(dx);if(moved>4)tr.classList.add('drag');tr.scrollLeft=sl-dx});
-addEventListener('pointerup',()=>{if(!dn)return;dn=false;tr.classList.remove('drag')});
-$$('.p-tin .arrow').forEach(b=>b.addEventListener('click',()=>tr.scrollBy({left:+b.dataset.dir*tr.clientWidth*.7,behavior:RM?'auto':'smooth'})));
+function upBar(){}
 
 /* Lunara posters tilt */
 const pw=$('#posters');
@@ -878,8 +915,8 @@ tt.addEventListener('input',()=>out.textContent=tt.value||'Imperfecta como tú')
 ts.addEventListener('input',()=>out.style.fontSize=ts.value+'px');
 if(innerWidth<700){ts.min=24;ts.max=90;ts.value=40;out.style.fontSize='40px'}
 $$('.tester .sw button').forEach(b=>b.addEventListener('click',()=>out.style.color=b.dataset.c));
-const gl=$('#glyphs'),gb=$('#gbig');
-'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzñáéíóú0123456789&?!@'.split('').forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',i===0);b.addEventListener('mouseenter',()=>gb.textContent=c);b.addEventListener('click',()=>{gb.textContent=c;$$('#glyphs button').forEach(x=>x.setAttribute('aria-pressed',x===b))});gl.appendChild(b)});
+const gl=$('#glyphs'),gb=$('#gbig');let gsel='A';gl.addEventListener('mouseleave',()=>gb.textContent=gsel);
+'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzñáéíóú0123456789&?!@'.split('').forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',i===0);b.addEventListener('mouseenter',()=>gb.textContent=c);b.addEventListener('click',()=>{gsel=c;gb.textContent=c;$$('#glyphs button').forEach(x=>x.setAttribute('aria-pressed',x===b))});gl.appendChild(b)});
 
 /* Ecodiseño: bolsa 3D que gira y se balancea */
 const bag=$('#bag'),bspin=$('#bspin');let ang=0.12,av=0,spin=0,sv=.8,bdrag=false,bx0=0,bt=0,G=null;
@@ -905,15 +942,13 @@ function swingStep(){if(!bdrag){av+=-ang*.012;av*=.985;ang+=av;if(!RM){spin+=sv;
  const r=spin*Math.PI/180,lit=n=>{const c=Math.cos(r+n-0.5);return .32*(1-Math.max(0,c))};
  fcs.fr.style.opacity=lit(0);fcs.bk.style.opacity=lit(Math.PI);fcs.sr.style.opacity=lit(-Math.PI/2);fcs.sl.style.opacity=lit(Math.PI/2);}
 
-/* vídeo */
-const pv=$('#pv'),vb=$('#vbtn');
-const vt=()=>{if(pv.paused){pv.play().catch(()=>{});vb.textContent='Pausa';vb.setAttribute('aria-label','Pausar vídeo')}else{pv.pause();vb.textContent='Play';vb.setAttribute('aria-label','Reproducir vídeo')}};
-vb.addEventListener('click',vt);pv.addEventListener('click',vt);
-if(RM){pv.pause();vb.textContent='Play'}
-new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)pv.pause();else if(!RM&&vb.textContent==='Pausa')pv.play().catch(()=>{})}),{threshold:.3}).observe(pv);
+/* vídeo: siempre en bucle */
+const pv=$('#pv');pv.muted=true;pv.loop=true;const pvPlay=()=>{if(!document.hidden)pv.play().catch(()=>{})};
+pvPlay();pv.addEventListener('pause',()=>setTimeout(pvPlay,60));document.addEventListener('visibilitychange',pvPlay);
+['pointerdown','touchstart','scroll'].forEach(ev=>addEventListener(ev,pvPlay,{once:true,passive:true}));
 
 /* revista */
-(()=>{const book=$('#book'),P=JSON.parse($('#bookPages').textContent),n=P.length/2,leaves=[];let cur=28,anim=null;
+(()=>{const book=$('#book'),P=JSON.parse($('#bookPages').textContent),n=P.length/2,leaves=[];let cur=0,anim=null;
  for(let i=0;i<n;i++){const l=document.createElement('div');l.className='leaf';l.innerHTML=`<div class="fa" style="background-image:url(${P[2*i]})"><i class="shd"></i><i class="glo"></i></div><div class="fa fb" style="background-image:url(${P[2*i+1]})"><i class="shd"></i></div>`;book.appendChild(l);leaves.push(l)}
  const cr=document.createElement('i');cr.className='cast r';const cl=document.createElement('i');cl.className='cast l';book.append(cr,cl);
  function pose(l,a){/* a: 0 (derecha) .. 180 (izquierda) */const r=a*Math.PI/180,s=Math.sin(r);
@@ -943,7 +978,26 @@ new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)pv.pause();else
   if(g.d>0?a>45:a<135)turn(g.d,a);else{busy=true;animate(l,a,g.d>0?0:180,()=>{busy=false;settle()})}};
  book.addEventListener('pointerup',up);book.addEventListener('pointercancel',up);
  book.style.touchAction='pan-y';
- settle();})();
+ /* se abre y se cierra con el scroll, hoja a hoja */
+ const OPEN=28,W=2.6;let av=0,man=false;
+ const ez2=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+ function target(){const r=book.getBoundingClientRect(),vh=innerHeight,c=(r.top+r.bottom)/2/vh;
+  const o=clamp((.98-c)/(.98-.5),0,1),x=clamp((.36-c)/(.36-0),0,1);return ez2(o)*(1-ez2(x))}
+ function scrub(a){const s=a*(OPEN-1+W),lo=Math.floor(s-W)-1,hi=Math.ceil(s)+1;let front=null,fd=1e9;
+  for(let i=0;i<n;i++){const l=leaves[i];let ang=0;if(i<OPEN){const t=clamp((s-i)/W,0,1);ang=180*(t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2)}
+   l.style.visibility=(i>=lo&&i<=hi)?'visible':'hidden';l.style.zIndex=ang>90?100+i:100+n-i;
+   if(i>=lo&&i<=hi){pose(l,ang);const d=Math.abs(ang-90);if(ang>0&&ang<180&&d<fd){fd=d;front=[l,ang]}}}
+  if(front)pose(front[0],front[1]);else{cr.style.opacity=cl.style.opacity=0}
+  const a0=i0();book.style.transform=`translateX(${-25*(1-a0)}%)`;
+  $('#bNum').textContent=a<.02?'Portada':`${2*OPEN}–${2*OPEN+1} / ${P.length}`;
+  function i0(){const t=clamp(s/W,0,1);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}}
+ book.style.transition='none';
+ (function tick(){const tg=target();
+  if(tg>.995&&av>.99){if(!man){man=true;av=1;cur=OPEN;busy=false;book.style.transition='';settle()}}
+  else{if(man){man=false;cur=OPEN;busy=true;book.style.transition='none'}
+   av+=(tg-av)*(RM?1:.14);if(Math.abs(tg-av)<.0005)av=tg;scrub(av)}
+  requestAnimationFrame(tick)})();
+ })();
 
 /* lightbox */
 function lightbox(src,alt){const d=document.createElement('div');d.className='lb';d.setAttribute('role','dialog');d.setAttribute('aria-label',alt||'Imagen');d.tabIndex=-1;d.innerHTML=`<img src="${src}" alt="">`;d.querySelector('img').alt=alt||'';const close=()=>{d.remove();removeEventListener('keydown',k)};const k=e=>{if(e.key==='Escape')close()};d.addEventListener('click',close);addEventListener('keydown',k);document.body.appendChild(d);d.focus()}
@@ -1013,9 +1067,14 @@ setInterval(()=>{if(!igVis||RM||Date.now()-igHold<5000)return;igT.scrollTo({left
  addEventListener('keydown',e=>{if(e.key==='Escape'&&!w.hidden)close()});
  f.addEventListener('submit',e=>{e.preventDefault();const n=$('#f_nom').value.trim(),m=$('#f_mail').value.trim(),t=$('#f_msg').value.trim();
   const url=`mailto:${to}?subject=${encodeURIComponent('Contacto desde tu portfolio · '+n)}&body=${encodeURIComponent(t+'\n\n'+n+' · '+m)}`;
-  const a=$('#mlink');a.href=url;a.click();
-  $('#mnote').innerHTML='Si no se ha abierto tu correo, escribe directamente a <b>'+to+'</b>.';});
+  const gm=`https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${encodeURIComponent('Contacto desde tu portfolio · '+n)}&body=${encodeURIComponent(t+'\n\n'+n+' · '+m)}`;
+  try{window.location.href=url}catch(_){}
+  $('#mnote').innerHTML='Se está abriendo tu app de correo con el mensaje listo. ¿No se abre? <a href="'+gm+'" target="_blank" rel="noopener">Envíalo con Gmail</a> o escribe a <b>'+to+'</b>.';});
 })();
+
+/* Contacto: directo a los datos, sin pasar por la carcasa */
+$$('a[href="#contacto"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const x=$('#contacto');scrollTo({top:x.offsetTop+(x.offsetHeight-innerHeight)*.97,behavior:'instant'})}));
+if(location.hash==='#contacto')setTimeout(()=>{const x=$('#contacto');scrollTo({top:x.offsetTop+(x.offsetHeight-innerHeight)*.97,behavior:'instant'})},1200);
 
 /* copy */
 function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
@@ -1048,5 +1107,201 @@ Promise.all([Promise.all(waits),fonts,loaded]).then(()=>setTimeout(done,150));
 setTimeout(done,20000);})();
 </script>
 
+<style>
+/* Tintals: el móvil se carga con el scroll y se abre la app */
+.p-tin{overflow:clip}
+.tapp{position:relative;height:560vh;margin-top:40px}
+.tapp-st{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center}
+.tblob{position:absolute;border-radius:42% 58% 63% 37% / 45% 40% 60% 55%;filter:blur(2px);pointer-events:none;animation:tmorph 14s ease-in-out infinite alternate}
+.tblob.b1{width:46vmin;height:46vmin;left:calc(50% - 30vmin);top:12%;background:radial-gradient(circle at 35% 35%,#5fd8f3,transparent 70%);opacity:.55}
+.tblob.b2{width:38vmin;height:38vmin;left:calc(50% + 2vmin);top:48%;background:radial-gradient(circle at 60% 40%,#0a3fbf,transparent 70%);opacity:.7;animation-duration:18s}
+@keyframes tmorph{0%{border-radius:42% 58% 63% 37% / 45% 40% 60% 55%;transform:translate(0,0) rotate(0)}100%{border-radius:61% 39% 35% 65% / 58% 62% 38% 42%;transform:translate(3vmin,-4vmin) rotate(40deg)}}
+.tapp-tx{justify-self:end;max-width:300px;position:relative}
+.tsteps{list-style:none;margin:18px 0 0;padding:0;counter-reset:none}
+.tsteps li{display:flex;gap:14px;align-items:baseline;font-family:var(--f-head);font-weight:800;font-size:clamp(1.3rem,2.1vw,1.9rem);line-height:1.1;padding:12px 0;border-top:1px solid rgba(255,255,255,.22);opacity:.35;transition:opacity .5s,transform .5s var(--ease)}
+.tsteps li b{font-family:var(--f-display);font-size:.8rem;letter-spacing:.1em;opacity:.8}
+.tsteps li.on{opacity:1;transform:translateX(8px)}
+.tphone{--ph:min(78svh,720px);position:relative;height:var(--ph);aspect-ratio:9/19.3;background:#10131b;border-radius:15%/7%;padding:calc(var(--ph)*.016);box-shadow:0 0 0 2px #2a2f3a inset,0 40px 80px rgba(0,20,90,.45);will-change:transform}
+.tscr{position:relative;width:100%;height:100%;border-radius:12.5%/5.8%;overflow:hidden;background:#fff;container-type:inline-size;transform:translateZ(0)}
+.tisl{position:absolute;z-index:9;left:50%;top:2.2%;width:31%;height:3.6%;margin-left:-15.5%;background:#10131b;border-radius:99px}
+.tload{position:absolute;inset:0;background:linear-gradient(170deg,#56d3ef 0%,#2b8cff 48%,#0a62e6 100%);display:grid;place-items:center}
+.tliq{position:absolute;inset:0;width:100%;height:100%}
+.tsym{position:absolute;left:50%;top:40%;width:42%;transform:translate(-50%,-50%);filter:drop-shadow(0 6px 14px rgba(0,30,120,.25))}
+.twm{position:absolute;left:50%;top:58%;width:50%;transform:translate(-50%,-50%) rotate(-4deg)}
+.tcap{position:absolute;left:0;right:0;bottom:7%;margin:0;text-align:center;font-family:var(--f-display);font-weight:600;font-size:4.2cqw;color:#e8f3ff}
+.tcap span{display:block;font-weight:800;font-size:3.4cqw;letter-spacing:.2em;opacity:.8;margin-bottom:1.5cqw}
+.tbub{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s}
+.tbub.on{opacity:1}
+.tbub i{position:absolute;bottom:-6%;width:3.2cqw;height:3.2cqw;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.15);animation:tbub 3.4s linear infinite}
+.tbub i:nth-child(1){left:14%;animation-delay:-.4s}.tbub i:nth-child(2){left:30%;width:2cqw;height:2cqw;animation-delay:-1.6s}.tbub i:nth-child(3){left:52%;animation-delay:-2.4s;width:4.4cqw;height:4.4cqw}
+.tbub i:nth-child(4){left:68%;width:2.4cqw;height:2.4cqw;animation-delay:-.9s}.tbub i:nth-child(5){left:82%;animation-delay:-3s}.tbub i:nth-child(6){left:42%;width:1.8cqw;height:1.8cqw;animation-delay:-2s}
+@keyframes tbub{0%{transform:translate(0,0)}50%{transform:translate(2cqw,calc(var(--lv,50) * -1cqw))}100%{transform:translate(-1cqw,calc(var(--lv,50) * -2cqw));opacity:0}}
+.tui{position:absolute;inset:0;background:#fff;color:#0b2a6b;clip-path:circle(0% at 50% 40%);font-family:var(--f-display);display:flex;flex-direction:column}
+.tui-bar{flex:none;height:11cqw;display:flex;justify-content:space-between;align-items:flex-end;padding:0 8cqw 1.4cqw;font-size:3.6cqw;position:relative;z-index:2;background:#fff}
+.tui-bar span{display:flex;gap:1cqw;align-items:flex-end}.tui-bar span i{width:1cqw;background:#0b2a6b;border-radius:1px}
+.tui-bar span i:nth-child(1){height:1.6cqw}.tui-bar span i:nth-child(2){height:2.4cqw}.tui-bar span i:nth-child(3){height:3.2cqw}
+.tui-bar em{width:5.6cqw;height:2.8cqw;border:1.5px solid #0b2a6b;border-radius:1cqw;margin-left:1cqw;background:linear-gradient(90deg,#0b2a6b 70%,transparent 70%) content-box;padding:.4cqw}
+.tui-vp{flex:1;overflow:hidden;position:relative}
+.tui-in{will-change:transform;padding-bottom:22cqw}
+.tui-hd{display:flex;justify-content:space-between;align-items:center;padding:3cqw 5cqw}
+.tui-logo{background:#0a6cff;border-radius:3.4cqw;padding:2.2cqw 3.4cqw;display:flex}
+.tui-logo img{height:6cqw;width:auto}
+.tui-cart{position:relative;width:10cqw;height:10cqw;border-radius:3cqw;box-shadow:0 1cqw 3cqw rgba(11,42,107,.15);display:grid;place-items:center}
+.tui-cart svg{width:5.6cqw;height:5.6cqw;fill:none;stroke:#0b2a6b;stroke-width:1.8}
+.tui-cart i{position:absolute;right:-1cqw;top:-1cqw;width:4.4cqw;height:4.4cqw;border-radius:50%;background:#0a6cff;color:#fff;font-style:normal;font-size:2.6cqw;font-weight:800;display:grid;place-items:center}
+.tui-search{margin:0 5cqw 4cqw;height:10cqw;border-radius:99px;background:#eef5ff;display:flex;align-items:center;gap:2.4cqw;padding:0 4cqw;font-size:3.4cqw;color:#5f7cad}
+.tui-search svg{width:4.6cqw;height:4.6cqw;fill:none;stroke:#0b2a6b;stroke-width:2.2}
+.tui-hero{position:relative;padding:8cqw 6cqw 16cqw;overflow:hidden;background:linear-gradient(160deg,#56d3ef 0%,#2b8cff 55%,#0a62e6 100%);color:#fff}
+.tui-hero::before{content:"";position:absolute;inset:0;background:url(assets/tin-patron-blanco.png) center/cover;opacity:.14}
+.tui-hero h4{position:relative;max-width:78%}
+.tui-hero p{position:relative;margin:0 0 5cqw;font-size:3.6cqw;opacity:.9}
+.tui-hero em{position:relative;display:inline-block;font-style:normal;font-weight:800;font-size:3.5cqw;background:#fff;color:#0a6cff;border-radius:99px;padding:2.8cqw 5cqw;box-shadow:0 2cqw 5cqw rgba(0,30,120,.25)}
+.tui-hsym{position:absolute;right:-16cqw;top:4cqw;width:58cqw;opacity:.16;transform:rotate(-12deg)}
+.tui-dest{position:relative;margin:0 5cqw 6cqw;border-radius:5cqw;overflow:hidden;aspect-ratio:4/5;box-shadow:0 3cqw 8cqw rgba(11,42,107,.15)}
+.tui-dest img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.tui-dest::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,30,90,.65))}
+.tui-dest span{position:absolute;left:5cqw;top:5cqw;z-index:1;background:#fff;color:#0a6cff;font-weight:800;font-size:3cqw;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:1.6cqw 3.4cqw}
+.tui-dest b{position:absolute;left:5cqw;bottom:5cqw;z-index:1;color:#fff;font-family:var(--f-head);font-size:7cqw}
+.tui-hero h4{margin:0 0 5cqw;font-family:var(--f-head);font-weight:800;font-size:9.4cqw;line-height:1;letter-spacing:-.02em;color:#fff;text-shadow:0 .5cqw 2cqw rgba(10,60,160,.15)}
+.tui-hero img{display:block;width:calc(100% + 12cqw);margin:0 -6cqw;aspect-ratio:700/647;object-fit:cover}
+.tui-wave{position:absolute;left:0;bottom:-3px;width:100%;height:10cqw}
+.tui-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:4cqw 2cqw;padding:5cqw 5cqw 6cqw;text-align:center;font-size:3.3cqw;font-weight:600}
+.tui-cats span{display:flex;flex-direction:column;align-items:center;gap:1.6cqw;cursor:pointer}
+.tui-cats i{width:15cqw;height:15cqw;border-radius:50%;background:#eaf2ff;display:grid;place-items:center;transition:transform .3s var(--ease),background .3s}
+.tui-cats span:hover i,.tui-cats span:active i{transform:scale(1.08);background:#d6e7ff}
+.tui-cats svg{width:7cqw;height:7cqw;fill:none;stroke:#0b2a6b;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.tui-nov{padding:0 5cqw 6cqw}
+.tui-nb{background:#0a6cff;color:#fff;border-radius:3cqw;padding:9cqw 5cqw;font-family:var(--f-head);font-weight:800;font-size:8cqw;margin-bottom:2.4cqw}
+.tui-g{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.4cqw}
+.tui-g img{width:100%;aspect-ratio:3/3.6;object-fit:cover;border-radius:2.4cqw}
+.tui-up{margin:0 5cqw;border-radius:5cqw;background:linear-gradient(160deg,#56d3ef,#0a62e6);color:#fff;padding:7cqw 6cqw;display:flex;flex-direction:column;gap:1.6cqw}
+.tui-up img{width:12cqw;margin-bottom:2cqw}
+.tui-up b{font-family:var(--f-head);font-size:6.4cqw;line-height:1.05}
+.tui-up span{font-size:3.4cqw;opacity:.9}
+.tui-up em{align-self:flex-start;margin-top:3cqw;font-style:normal;font-weight:800;font-size:3.4cqw;background:#fff;color:#0a6cff;border-radius:99px;padding:2.6cqw 5cqw}
+.tui-tab{position:absolute;left:4cqw;right:4cqw;bottom:4cqw;height:15cqw;border-radius:99px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);box-shadow:0 2cqw 6cqw rgba(11,42,107,.18);display:flex;justify-content:space-around;align-items:center;z-index:3}
+.tui-tab i{width:10cqw;height:10cqw;border-radius:50%;display:grid;place-items:center}
+.tui-tab i.on{background:#0a6cff}
+.tui-tab svg{width:5.4cqw;height:5.4cqw;fill:none;stroke:#0b2a6b;stroke-width:1.9;stroke-linejoin:round}
+.tui-tab i.on svg{stroke:#fff}
+.tripple{position:absolute;z-index:8;width:8cqw;height:8cqw;margin:-4cqw 0 0 -4cqw;border-radius:50%;border:2px solid rgba(10,108,255,.55);pointer-events:none;animation:trip .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes trip{to{transform:scale(7);opacity:0;border-width:1px}}
+.tapp-side{position:relative;height:min(70svh,640px);justify-self:start;width:min(30vw,420px)}
+.tapp-side img{position:absolute;width:100%;border-radius:16px;box-shadow:0 30px 60px rgba(0,20,90,.35);will-change:transform}
+.tapp-side .ts1{top:0;left:0}
+.tapp-side .ts2{bottom:0;left:12%;width:88%}
+.tin-more{display:none}
+@media (max-width:900px){
+ .tapp{height:520vh;margin-top:20px}
+ .tapp-st{padding:calc(56px + env(safe-area-inset-top,0px)) 0 16px}
+ .tapp-tx{justify-self:center;max-width:none;text-align:center}
+ .tapp-tx .ey{display:none}
+ .tsteps{margin:0;position:relative;height:1.3em}
+ .tsteps li{position:absolute;left:0;right:0;justify-content:center;border:0;padding:0;font-size:1.25rem;white-space:nowrap;opacity:0;transform:translateY(10px)}
+ .tsteps{width:100vw;max-width:100%}
+ .tsteps li.on{opacity:1;transform:none}
+ .tphone{--ph:min(calc(100svh - 110px),660px)}
+ .tapp-side{display:none}
+ .tin-more{display:grid;gap:14px;margin-top:10px}
+ .tin-more img{width:100%;border-radius:14px}
+}
+@media (prefers-reduced-motion:reduce){.tblob,.tbub i{animation:none}}
+</style>
+<script>
+/* Tintals: carga con el scroll, ola de tinta y apertura de la app */
+(()=>{const sec=document.getElementById('tapp');if(!sec)return;
+const q=s=>document.querySelector(s),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const phone=q('#tphone'),w1=q('#tw1'),w2=q('#tw2'),pct=q('#tpct'),bub=q('#tbub'),ui=q('#tui'),uin=q('#tuiIn'),vp=q('.tui-vp'),steps=[...document.querySelectorAll('#tsteps li')],scr=q('#tscr');
+const s1=q('.tapp-side .ts1'),s2=q('.tapp-side .ts2');
+function wave(level,amp,ph,k){const y0=104-level*112;let d=`M0 ${(y0+amp*Math.sin(ph)).toFixed(2)}`;for(let x=4;x<=100;x+=4)d+=` L${x} ${(y0+amp*Math.sin(x*k+ph)).toFixed(2)}`;return d+' L100 100 L0 100Z'}
+let st=-1;
+function frame(now){const r=sec.getBoundingClientRect();
+ if(r.bottom>-100&&r.top<innerHeight+100){
+  const tot=sec.offsetHeight-innerHeight,p=cl(-r.top/tot,0,1),t=now/1000;
+  const en=ez(cl((innerHeight-r.top)/(innerHeight*1.1),0,1));
+  phone.style.transform=`translateY(${(1-en)*14}vh) rotate(${-10*(1-en)+(RM?0:Math.sin(t*.8)*.6*(1-cl(p*3,0,1)))}deg)`;
+  const L=ez(cl((p-.05)/.3,0,1)),amp=L>0&&L<1?2.6:0;
+  w1.setAttribute('d',wave(L,amp,RM?0:t*2.2,.07));w2.setAttribute('d',wave(Math.min(1,L*1.04+.01),amp*1.2,RM?0:-t*1.7+1,.055));
+  pct.textContent=Math.round(L*100)+'%';bub.classList.toggle('on',L>.04&&L<.97);bub.style.setProperty('--lv',Math.round(L*100));
+  const o=ez(cl((p-.36)/.1,0,1));ui.style.clipPath=o>=1?'none':`circle(${(o*125).toFixed(2)}% at 50% 40%)`;
+  const s=ez(cl((p-.5)/.22,0,1));uin.style.transform=`translateY(${-s*Math.max(0,uin.scrollHeight-vp.clientHeight)}px)`;
+  const k=p<.08?0:p<.5?1:2;if(k!==st){st=k;steps.forEach((li,i)=>li.classList.toggle('on',i===k))}
+  if(s1){s1.style.transform=`translateY(${(.5-p)*120}px) rotate(${-6+p*8}deg)`;s2.style.transform=`translateY(${(p-.5)*90}px) rotate(${5-p*9}deg)`}
+ }
+ requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+scr.addEventListener('pointerdown',e=>{const b=scr.getBoundingClientRect(),d=document.createElement('i');d.className='tripple';d.style.left=(e.clientX-b.left)+'px';d.style.top=(e.clientY-b.top)+'px';scr.appendChild(d);setTimeout(()=>d.remove(),950)});
+})();
+</script>
+<style>
+/* Tintals: papel y tarjeta que aparecen junto al móvil */
+.tapp-st{position:sticky}
+.tphone{transition:none}
+.tapp-items{position:absolute;inset:0;pointer-events:none}
+.ti{position:absolute;opacity:0;will-change:transform,opacity}
+.ti-paper{left:calc(50% + 2vw);top:50%;height:min(64svh,600px);aspect-ratio:1/1.414;background:#fff;box-shadow:0 30px 60px rgba(0,20,90,.35);overflow:hidden;container-type:inline-size}
+.ti-paper .wm{position:absolute;left:9%;top:7%;width:34%}
+.ti-paper small{position:absolute;left:9%;bottom:20%;font-size:2.6cqw;font-weight:700;color:#0b2a6b}
+.ti-paper .pat{position:absolute;left:0;right:0;bottom:0;height:15%;background:url(assets/tin-patron-azul.png) center/cover}
+.ti-card{left:calc(50% + 2vw);top:50%;width:min(30vw,360px);aspect-ratio:85/55}
+.ti-card .cd{position:absolute;inset:0;border-radius:4.5%/7%;overflow:hidden;box-shadow:0 24px 50px rgba(0,20,90,.35);container-type:inline-size}
+.ti-card .back{background:#fafafa;transform:translate(14%,-30%) rotate(8deg)}
+.ti-card .back .wm{position:absolute;left:8%;top:14%;width:40%}
+.ti-card .back small{position:absolute;left:8%;bottom:14%;font-size:3.6cqw;line-height:1.35;font-weight:700;color:#0b2a6b}
+.ti-card .back .pat{position:absolute;top:0;bottom:0;right:0;width:32%;background:url(assets/tin-patron-azul.png) center/cover}
+.ti-card .front{background:linear-gradient(140deg,#2b8cff,#0a62e6);display:grid;place-items:center;transform:rotate(-5deg)}
+.ti-card .front .wm{width:62%}
+@media (max-width:900px){
+ .ti-paper{left:47%;top:40%;height:min(30svh,280px)}
+ .ti-card{left:50%;top:70%;width:min(66vw,300px)}
+}
+</style>
+<script>
+(()=>{const sec=document.getElementById('tapp');if(!sec)return;const ph=document.getElementById('tphone'),pa=document.getElementById('tiPaper'),ca=document.getElementById('tiCard');
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v)),ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+(function f(){const r=sec.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const p=cl(-r.top/(sec.offsetHeight-innerHeight),0,1),mob=innerWidth<=900;
+ const sh=ez(cl((p-.74)/.08,0,1)),a=ez(cl((p-.78)/.08,0,1)),b=ez(cl((p-.88)/.08,0,1));
+ ph.style.translate=mob?`${-sh*24}vw ${-sh*16}vh`:`${-sh*16}vw 0`;ph.style.scale=mob?String(1-sh*.5):String(1-sh*.06);
+ pa.style.opacity=a;pa.style.transform=mob?`translate(${(1-a)*50}vw,-50%) rotate(${4-a*7}deg)`:`translate(${(1-a)*30}vw,-56%) rotate(${4-a*7}deg)`;
+ ca.style.opacity=b;ca.style.transform=mob?`translate(calc(-50% + ${(1-b)*60}vw),-50%) rotate(${8-b*10}deg)`:`translate(${(1-b)*30+17}vw,${17}vh) rotate(${8-b*10}deg)`;}
+ requestAnimationFrame(f)})();})();
+</script>
+<style>
+/* hoja de carta: misma familia que la tarjeta (franja del patrón a la derecha) */
+.ti-paper>*{position:absolute}
+.ti-paper .band{left:0;right:0;bottom:0;height:20%;background:url(assets/tin-patron-azul.png) center 30%/cover no-repeat}
+.ti-paper .wm{left:10%;top:7%;width:40%}
+.ti-paper .srv{right:10%;top:7.6%;margin:0;font-size:2.7cqw;line-height:1.45;font-weight:700;color:#0b2a6b;text-align:right}
+/* Lunara: rejilla de glifos proporcional */
+.tester .two{grid-template-columns:minmax(0,3fr) minmax(0,2fr)!important}
+.glyphs button{min-width:0;padding:0}
+.gbig{font-size:clamp(5rem,15vw,15rem)!important;line-height:1.25!important;overflow:visible;align-self:center;padding:.1em 0}
+@media (max-width:700px){.tester .two{grid-template-columns:1fr!important}.gbig{font-size:clamp(5rem,32vw,9rem)!important}}
+/* like en el carrusel */
+.ig-like{cursor:pointer;transition:transform .2s}
+.ig-like.on path{fill:#ff3040;stroke:#ff3040}
+.ig-like.pop{animation:igpop .35s cubic-bezier(.2,1.6,.4,1)}
+@keyframes igpop{0%{transform:scale(1)}50%{transform:scale(1.35)}100%{transform:scale(1)}}
+.ig-likes{font-size:.74rem;font-weight:700;padding:2px 12px 0;margin:0}
+.ig-burst{position:absolute;left:50%;top:50%;width:90px;height:90px;margin:-45px 0 0 -45px;pointer-events:none;z-index:4;fill:#fff;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35));animation:igburst .8s ease forwards}
+@keyframes igburst{0%{transform:scale(0);opacity:0}25%{transform:scale(1.15);opacity:1}45%{transform:scale(.95)}80%{opacity:1}100%{transform:scale(1);opacity:0}}
+.ph-scr{position:relative}
+</style>
+<script>
+/* Rompe el bucle: like y móvil desde la izquierda */
+(()=>{const bar=document.querySelector('.ig-bar');if(!bar)return;const h=bar.querySelector('svg');h.classList.add('ig-like');h.setAttribute('role','button');h.setAttribute('aria-label','Me gusta');h.setAttribute('tabindex','0');
+ const cnt=document.createElement('p');cnt.className='ig-likes';let n=1284,on=false;const fmt=()=>cnt.textContent=n.toLocaleString('es-ES')+' Me gusta';fmt();bar.after(cnt);
+ const set=v=>{if(v===on)return;on=v;n+=v?1:-1;fmt();h.classList.toggle('on',v);h.classList.remove('pop');void h.offsetWidth;h.classList.add('pop')};
+ h.addEventListener('click',()=>set(!on));h.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set(!on)}});
+ const tr=document.getElementById('igTrack'),scr=tr.closest('.ph-scr');let lt=0;
+ const burst=()=>{set(true);const b=document.createElementNS('http://www.w3.org/2000/svg','svg');b.setAttribute('viewBox','0 0 24 24');b.classList.add('ig-burst');b.innerHTML='<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>';const r=tr.getBoundingClientRect(),sr=scr.getBoundingClientRect();b.style.top=(r.top-sr.top+r.height/2)+'px';scr.appendChild(b);setTimeout(()=>b.remove(),850)};
+ tr.addEventListener('dblclick',burst);tr.addEventListener('pointerup',e=>{if(e.pointerType==='mouse')return;const t=Date.now();if(t-lt<320){burst();lt=0}else lt=t});
+ const ph=document.querySelector('#rompe .phone'),row=document.querySelector('#rompe .igrow');if(!ph)return;
+ const cl=(v,a,b)=>Math.max(a,Math.min(b,v)),ez=t=>1-Math.pow(1-t,3),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ (function f(){const r=row.getBoundingClientRect();if(r.top<innerHeight*1.2&&r.bottom>-200){const p=RM?1:ez(cl((innerHeight-r.top)/(innerHeight*.75),0,1));
+  ph.style.translate=`${(p-1)*Math.min(70,60+innerWidth/100)}vw 0`;ph.style.rotate=`${(1-p)*-14}deg`;ph.style.opacity=String(.2+.8*p)}
+  requestAnimationFrame(f)})();})();
+</script>
 </body>
 </html>
